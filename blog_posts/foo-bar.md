@@ -1,6 +1,13 @@
 ---
 date: 1-1-2006
+tags:
+    - foo
+    - bar
+    - baz
+    - qux
 ---
+
+In occaecat incididunt elit fugiat duis nostrud proident sunt .laboris officia eiusmod ea officia ut in et occaecat nostrud duis exercitation do est ut mollit.
 
 # hello 1
 
@@ -16,18 +23,19 @@ Irure veniam pariatur exercitation ut sunt sint est sed consequat id id exercita
 Excepteur ad tempor ut nulla eu laboris anim in elit in eiusmod laborum sed culpa labore dolore aliquip adipisicing et nostrud labore ut fugiat elit quis dolor proident occaecat proident sit cupidatat in sit.
 
 ```svelte
-<div></div>
+<div />
+
 <style lang="postcss" global>
 	@tailwind base;
 	@tailwind components;
 	@tailwind utilities;
 
 	.theme-dark {
-		@apply text-white bg-zinc-800
+		@apply bg-zinc-800 text-white;
 	}
 
 	.theme-light {
-		@apply text-black bg-zinc-100
+		@apply bg-zinc-100 text-black;
 	}
 
 	/** shiki configuration */
@@ -61,6 +69,5 @@ Excepteur ad tempor ut nulla eu laboris anim in elit in eiusmod laborum sed culp
 	}
 </style>
 ```
-
 
 [anu](/)

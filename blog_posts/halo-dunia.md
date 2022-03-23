@@ -1,11 +1,14 @@
 ---
+tags:
+    - golang
+    - nodejs
+    - deno
+    - halo dunia
 ---
 
-# Hello World
+Lorem ipsum dolore fugiat ad qui sint reprehenderit consequat. magna anim velit anim officia duis deserunt minim laborum deserunt dolor mollit ut velit aute quis do ullamco.
 
-Lorem ipsum dolore fugiat ad qui sint reprehenderit consequat magna anim velit anim officia duis deserunt minim laborum deserunt dolor mollit ut velit aute quis do ullamco.
-
-## Deno
+# Deno
 
 simpel halo dunia deno
 
@@ -20,7 +23,7 @@ const handler = (_req: Request, _conn: ConnInfo) => {
 serve(handler, { port: 8080 });
 ```
 
-## Node
+# Node
 
 simpel halo dunia node
 
@@ -34,7 +37,7 @@ const handler = (_req, res) => {
 http.createServer(handler).listen(8080);
 ```
 
-## Go
+# Go
 
 simpel halo dunia go
 

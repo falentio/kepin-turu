@@ -6,7 +6,7 @@ export const get: RequestHandler = () => {
 	return {
 		status: 200,
 		body: {
-			list: list as any,
+			list: list as any, // eslint-disable-line @typescript-eslint/no-explicit-any
 		},
 	};
 };

@@ -1,4 +1,4 @@
-import type { Metadata } from "$lib/blog"
+import type { Metadata } from "$lib/blog";
 export interface BlogData {
 	next?: string;
 	prev?: string;

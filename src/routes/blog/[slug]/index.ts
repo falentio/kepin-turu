@@ -2,20 +2,24 @@ import type { RequestHandler } from "@sveltejs/kit";
 import type { BlogData } from "./_types";
 import * as blog from "$lib/blog";
 
-const content = new Map<string, Promise<string>>()
+const contents = new Map<string, Promise<string>>();
 const getContent = (name: string): Promise<string> => {
-	if (!content.has(name)) {
-		content.set(name, blog.getContent(name))
+	const content = contents.get(name) || blog.getContent(name);
+	if (!contents.has(name)) {
+		contents.set(name, content);
 	}
-	return content.get(name)!
-}
+	return content;
+};
 
-export const get: RequestHandler = async ({ params }) => {
+export const get: RequestHandler = async ({ params, url }) => {
 	const name = params.slug;
 	const list = blog.list();
 	const i = list.findIndex((i) => i.name == name);
 	if (i == -1) {
 		return { status: 404 };
+	}
+	if (url.searchParams.has("fresh")) {
+		contents.delete(name);
 	}
 	const blogData: BlogData = {
 		next: list[i + 1]?.name,
@@ -26,7 +30,7 @@ export const get: RequestHandler = async ({ params }) => {
 	return {
 		status: 200,
 		body: {
-			blogData: blogData as any,
+			blogData: blogData as any, // eslint-disable-line @typescript-eslint/no-explicit-any
 		},
 	};
 };

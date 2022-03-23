@@ -1,9 +1,15 @@
 ---
+tags:
+    - golang
+    - nodejs
+    - deno
+    - hello
+    - world
 ---
 
-# hello world
+hello world.
 
-## rust
+# rust
 
 simple rust hello world
 
@@ -14,7 +20,7 @@ fn main() {
 }
 ```
 
-## typescript
+# typescript
 
 simple typescript hello world
 
@@ -23,7 +29,7 @@ const foo: string = "hello world!!!";
 console.log(foo);
 ```
 
-## golang
+# golang
 
 simple golang hello world
 

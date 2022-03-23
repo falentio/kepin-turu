@@ -2,3 +2,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/** shiki configuration */
+.dark .rehype-shiki > .shiki-light {
+	display: none;
+}
+
+.light .rehype-shiki > .shiki-dark {
+	display: none;
+}
+
+pre.shiki {
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+pre.shiki > code {
+	counter-reset: step;
+	counter-increment: step 0;
+}
+
+pre.shiki > code > .line::before {
+	content: counter(step);
+	counter-increment: step;
+	width: 2rem;
+	margin-right: 0.5rem;
+	display: inline-block;
+	text-align: right;
+	border-right: inset;
+	padding-right: 0.5rem;
+}
