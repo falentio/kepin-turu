@@ -8,9 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
-    env:
-      GH_ACTIONS: 1
-
     steps:
       - name: Clone repository
         uses: actions/checkout@v2
