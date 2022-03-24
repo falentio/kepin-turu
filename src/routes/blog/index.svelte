@@ -14,15 +14,21 @@
 					href="blog/{name}"
 					class="h-auto rounded-xl object-cover md:m-2"
 				>
-					<img src={metadata.image} alt={name} />
+					<img
+						src={metadata.image}
+						alt={name}
+						width="300"
+						height="200"
+					/>
 				</a>
 				<div class="col-span-2 mx-2 flex flex-col">
 					<a
 						sveltekit:prefetch
 						href="blog/{name}"
 						class="text-xl font-bold capitalize"
-						>{name.replace(/-/g, " ")}</a
 					>
+						{name.replace(/-/g, " ")}
+					</a>
 					<p
 						class="mb-auto overflow-hidden text-base leading-relaxed line-clamp-2"
 					>
