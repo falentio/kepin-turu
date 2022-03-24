@@ -10,7 +10,10 @@
 		initTheme();
 	}
 	onMount(() => {
-		document.querySelector(window.location.hash)?.scrollIntoView();
+		if (window.location.hash !== "") {
+			document.querySelector(window.location.hash)?.scrollIntoView();
+		}
+		return () => {}
 	});
 </script>
 
