@@ -23,10 +23,14 @@ export const switchTheme = () => {
 	});
 };
 
-export const init = () => {
+const setFromLocal = () => {
 	const current =
 		localStorage.getItem(ITEM_NAME) ?? getSysTheme() ?? DEFAULT_THEME;
 	theme.set(current);
+};
+
+export const init = () => {
+	setFromLocal();
 	theme.subscribe((v) => {
 		localStorage.setItem(ITEM_NAME, v);
 	});
