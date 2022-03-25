@@ -19,7 +19,7 @@
 
 <div class={$theme}>
 	<div
-		class="abel flex h-max min-h-screen flex-col bg-gray-100 text-black dark:bg-zinc-800 dark:text-gray-100 md:text-xl"
+		class="abel flex h-max min-h-screen flex-col bg-gray-100 text-black dark:bg-zinc-800 dark:text-stone-200 md:text-xl"
 		class:hidden={!browser}
 	>
 		<Navbar />

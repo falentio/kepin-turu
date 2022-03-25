@@ -19,6 +19,7 @@
 pre.shiki {
 	overflow-x: auto;
 	overflow-y: hidden;
+	@apply rounded-md;
 }
 
 .shiki > code > span {
