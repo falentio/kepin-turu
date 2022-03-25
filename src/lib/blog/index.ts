@@ -21,7 +21,6 @@ const blogPosts = "blog_posts";
 dayjs.extend(parseFmt);
 
 export interface Metadata {
-	name: string;
 	title: string;
 	desc: string;
 	postDate: string;

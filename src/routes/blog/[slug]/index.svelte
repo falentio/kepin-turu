@@ -4,56 +4,64 @@
 </script>
 
 <script lang="ts">
-	import type { BlogData } from "./_types";
 	import type { MetaTagsProps } from "svelte-meta-tags";
-	import { goto, invalidate } from "$app/navigation"
+	import type { Metadata } from "$lib/blog";
 	import { MetaTags } from "svelte-meta-tags";
-	import NextPrevBtn from "$lib/components/NextPrevBtn.svelte"
-	export let blogData: BlogData;
-	const { metadata, content, next, prev } = blogData;
+	import NextPrevBtn from "$lib/components/NextPrevBtn.svelte";
+	export let metadata: Metadata;
+	export let content: string;
+	export let prev: string | null;
+	export let next: string | null;
 	const metatags: MetaTagsProps = {
 		title: metadata.title,
 		description: metadata.desc,
 		openGraph: {
 			title: metadata.title,
 			description: metadata.desc,
-			type: "websote",
-			images: [{
-				url: metadata.ogImage || metadata.image,
-			}],
-		}
+			type: "website",
+			images: [
+				{
+					url: metadata.ogImage || metadata.image,
+				},
+			],
+		},
 	};
 </script>
 
 <MetaTags {...metatags} />
-
-<h1 class="text-center text-3xl capitalize mb-4">
+<h1 class="mb-4 text-center text-3xl capitalize">
 	{metadata.title.replace(/-/g, " ")}
 </h1>
-<div class="text-center mb-4">
+<div class="mb-4 text-center">
 	Posted on: {metadata.postDate} <br />
-	{#if !metadata.editDate.startsWith("x") }
+	{#if !metadata.editDate.startsWith("x")}
 		Last edit: {metadata.editDate} <br />
 	{/if}
 </div>
 <div class="mx-auto mb-4">
-	<img src={metadata.image} alt="cover images" width="300" height="200" class="mx-auto" />
+	<img
+		src={metadata.image}
+		alt="cover images"
+		width="300"
+		height="200"
+		class="mx-auto"
+	/>
 </div>
-<div class="mb-4">{metadata.desc}</div>
-<div class="c flex flex-col gap-2 mb-4">{@html content}</div>
+<div class="mb-4 text-center">{metadata.desc}</div>
+<div class="c mb-4 flex flex-col gap-2">{@html content}</div>
 <div class="flex flex-row">
-	<NextPrevBtn target={prev} text="Prev:" class="bg-blue-700f border-solid border-2 border-zinc-700 w-36 py-1 px-3 font-serif shadow-md text-left"/>
-	<div class="mx-auto"></div>
-	<NextPrevBtn target={next} text="Next:" class="bg-blue-70f0 border-solid border-2 border-zinc-700 w-36 py-1 px-3 font-serif shadow-md text-right"/>
+	<NextPrevBtn target={prev} text="Prev:" class="text-left" />
+	<div class="mx-auto" />
+	<NextPrevBtn target={next} text="Next:" class="text-right" />
 </div>
 
 <style lang="postcss">
 	div.c :global(h1) {
-		@apply text-2xl md:text-4xl capitalize;
+		@apply text-2xl capitalize md:text-4xl;
 	}
 
 	div.c :global(h2) {
-		@apply text-xl md:text-3xl capitalize;
+		@apply text-xl capitalize md:text-3xl;
 	}
 
 	div.c :global(a[href^="http"]) {

@@ -1,15 +1,18 @@
 <script lang="ts">
-	import { invalidate, goto, prefetch } from "$app/navigation"
-	export let target: string = ""
-	export let text: string
-	let a
-
-	async function click() {
-		a.click()
+	import { goto, prefetch } from "$app/navigation";
+	import { browser } from "$app/env";
+	export let target: string | null = null;
+	export let text: string;
+	$: if (browser) {
+		prefetch(target);
 	}
 </script>
-<a sveltekit:prefetch href="./{target}" bind:this={a}>ff</a>
-<button class:invisible={!target} class="{$$props.class} rounded-md" on:click={click}>
-	<div>{text}</div>
-	<div class="capitalize">{target.replace(/-/gi, " ")}</div>
+
+<button
+	class:invisible={target === null}
+	class="{$$props.class} w-36 rounded-md border-2 border-solid border-zinc-700 py-1 px-3 font-serif shadow-md md:w-48"
+	on:click={() => goto(target)}
+>
+	<div class="truncate">{text}</div>
+	<div class="capitalize">{target?.replace(/-/gi, " ")}</div>
 </button>

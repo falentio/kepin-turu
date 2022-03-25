@@ -1,5 +1,4 @@
 import type { RequestHandler } from "@sveltejs/kit";
-import type { BlogData } from "./_types";
 import * as blog from "$lib/blog";
 
 const contents = new Map<string, Promise<string>>();
@@ -21,16 +20,14 @@ export const get: RequestHandler = async ({ params, url }) => {
 	if (url.searchParams.has("fresh")) {
 		contents.delete(name);
 	}
-	const blogData: BlogData = {
-		next: list[i - 1]?.title,
-		prev: list[i + 1]?.title,
+	const body = {
+		next: list[i - 1]?.title || null,
+		prev: list[i + 1]?.title || null,
 		content: await getContent(name),
 		metadata: blog.getMetadata(name),
 	};
 	return {
 		status: 200,
-		body: {
-			blogData: blogData as any, // eslint-disable-line @typescript-eslint/no-explicit-any
-		},
+		body: body as any, // eslint-disable-line @typescript-eslint/no-explicit-any
 	};
 };
