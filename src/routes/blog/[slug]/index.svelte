@@ -13,10 +13,10 @@
 	export let prev: string | null;
 	export let next: string | null;
 	const metatags: MetaTagsProps = {
-		title: metadata.title,
+		title: metadata.title.replace(/-/g, " "),
 		description: metadata.desc,
 		openGraph: {
-			title: metadata.title,
+			title: metadata.title.replace(/-/g, " "),
 			description: metadata.desc,
 			type: "website",
 			images: [
