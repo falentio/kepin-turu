@@ -6,7 +6,7 @@ tags:
     - halo dunia
 ---
 
-Lorem ipsum dolore fugiat ad qui sint reprehenderit consequat. magna anim velit anim officia duis deserunt minim laborum deserunt dolor mollit ut velit aute quis do ullamco.
+contoh contoh http server yang memiliki response "`halo dunia`"
 
 # Deno
 
@@ -59,5 +59,3 @@ func main() {
 	http.ListenAndServe(":8080", handler{})
 }
 ```
-
-Nisi dolor duis velit pariatur magna id aute qui mollit pariatur excepteur anim velit cillum sunt incididunt sint ex occaecat cupidatat occaecat nulla commodo commodo nulla reprehenderit elit nulla non reprehenderit officia ad.

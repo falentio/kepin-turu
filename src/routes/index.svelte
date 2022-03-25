@@ -3,12 +3,14 @@
 </script>
 
 <div class="flex flex-col justify-center gap-5 py-5">
-	<div class="mx-auto w-40">
+	<div class="mx-auto">
 		<a href="https://github.com/falentio" class="shadow-xl" target="blank">
 			<img
-				src="https://github.com/falentio.png"
-				alt="profile pictore"
+				src="https://github.com/falentio.png?size=200"
+				alt="profile"
 				class="rounded-full"
+				width="200"
+				height="200"
 			/>
 		</a>
 	</div>
@@ -38,8 +40,16 @@
 					tailwind
 				</a>
 			</li>
+			<li>
+				<a
+					class="flex w-max gap-1"
+					href="https://wikipedia.org/wiki/Markdown"
+					target="blank"
+				>
+					<Icon icon="cib:markdown" class="my-auto h-full" />
+					markdown
+				</a>
+			</li>
 		</ul>
 	</div>
 </div>
-
-<style lang="postcss"></style>

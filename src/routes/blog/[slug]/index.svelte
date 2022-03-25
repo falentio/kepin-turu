@@ -7,31 +7,37 @@
 	import type { BlogData } from "./_types";
 	import { title } from "$lib/store/title";
 	export let blogData: BlogData;
-	$: if (blogData) {
-		title.set(blogData.metadata.title + "");
-	}
+	title.set(blogData.metadata.title + "");
 </script>
 
-<div class="my-2 flex flex-col">
-	<div class="my-2 text-center text-3xl capitalize">
+<div class="my-2 flex flex-col gap-4">
+	<h1 class="text-center text-3xl capitalize">
 		{blogData.metadata.title}
+	</h1>
+	<div class="text-center">
+		Posted on: {blogData.metadata.postDate}
 	</div>
-	<div class="mx-auto my-2">
-		<img src={blogData.metadata.image} alt="cover images" />
+	<div class="mx-auto">
+		<img
+			src={blogData.metadata.image}
+			alt="cover images"
+			width="300"
+			height="200"
+		/>
 	</div>
-	<div class="my-2">{@html blogData.content}</div>
+	<div class="c">{@html blogData.content}</div>
 </div>
 
 <style lang="postcss">
-	div :global(h1) {
+	div.c :global(h1) {
 		@apply pt-5 text-2xl md:text-4xl;
 	}
 
-	div :global(h2) {
+	div.c :global(h2) {
 		@apply py-2 text-xl md:text-3xl;
 	}
 
-	div :global(a[href^="http"]) {
+	div.c :global(a[href^="http"]) {
 		@apply text-blue-600;
 	}
 </style>

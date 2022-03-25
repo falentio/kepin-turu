@@ -21,7 +21,7 @@
 </svelte:head>
 <div class={$theme}>
 	<div
-		class="flex h-screen h-max min-h-screen flex-col bg-gray-100 text-black dark:bg-zinc-800 dark:text-gray-400 md:text-xl"
+		class="flex h-screen h-max min-h-screen flex-col bg-gray-100 text-black dark:bg-zinc-800 dark:text-gray-100 md:text-xl"
 		class:hidden={!browser}
 	>
 		<Navbar />
@@ -31,6 +31,3 @@
 		<Footer />
 	</div>
 </div>
-
-<style lang="postcss" global>
-</style>
