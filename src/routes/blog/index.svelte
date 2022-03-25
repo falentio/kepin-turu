@@ -1,21 +1,29 @@
 <script lang="ts">
 	import type { Metadata } from "$lib/blog";
+	import type { MetaTagsProps } from "svelte-meta-tags";
+	import { MetaTags } from "svelte-meta-tags";
 	import Tags from "$lib/components/Tags.svelte";
 	export let list: Metadata[] = [];
+	// TODO: implement filter
 	let displayed = list;
+	const metatags: MetaTagsProps = {
+		title: "my small website",
+	};
 </script>
 
-<div class="flex flex-col justify-center gap-5 py-5">
-	{#each displayed as metadata (metadata.name)}
+<MetaTags {...metatags} />
+
+<div class="flex flex-col justify-center gap-5">
+	{#each displayed as metadata (metadata.title)}
 		<div class="p-2 shadow-lg">
 			<div class="grid grid-cols-3 overflow-hidden">
 				<a
-					href="blog/{metadata.name}"
+					href="blog/{metadata.title}"
 					class="h-auto rounded-xl object-cover md:m-2"
 				>
 					<img
 						src={metadata.image}
-						alt={metadata.name}
+						alt={metadata.title}
 						width="300"
 						height="200"
 					/>
@@ -23,11 +31,12 @@
 				<div class="col-span-2 mx-2 flex flex-col">
 					<a
 						sveltekit:prefetch
-						href="blog/{metadata.name}"
+						href="blog/{metadata.title}"
 						class="text-xl font-bold capitalize"
 					>
-						{metadata.name.replace(/-/g, " ")}
+						{metadata.title.replace(/-/g, " ")}
 					</a>
+					<p class="truncate">{metadata.desc}</p>
 					<p
 						class="mb-auto overflow-hidden text-base leading-relaxed"
 					>

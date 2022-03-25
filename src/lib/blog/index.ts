@@ -21,13 +21,14 @@ const blogPosts = "blog_posts";
 dayjs.extend(parseFmt);
 
 export interface Metadata {
+	title: string;
+	desc: string;
 	postDate: string;
 	postDateMs: number;
 	editDate: string;
 	editDateMs: number;
-	name: string;
-	title: string;
 	image: string;
+	ogImage: string;
 	tags: string[];
 }
 
@@ -55,19 +56,20 @@ const remark = unified()
 	.use(remarkFrontmatter, ["yaml"]);
 
 const defaultMetadata: Metadata = {
-	name: "",
+	title: "",
 	postDate: "1-8-2005",
 	postDateMs: 0,
 	editDate: "",
 	editDateMs: 0,
-	image: "https://picsum.photos/id/353/300/200",
-	title: "Hello World!!!",
+	image: "https://picsum.photos/id/881/300/200",
+	ogImage: "https://picsum.photos/id/881/1200/630",
+	desc: "Hello World!!!",
 	tags: [],
 };
 
 const processMetadata = (m: Partial<Metadata>): Metadata => {
 	const metadata: Metadata = Object.assign({}, defaultMetadata, m);
-	metadata.editDate ||= m.postDate;
+	metadata.editDate ||= metadata.postDate;
 	metadata.postDateMs = dayjs(metadata.postDate, "D-M-YYYY").valueOf();
 	metadata.postDate = dayjs(metadata.postDate, "D-M-YYYY")
 		.toDate()
@@ -77,7 +79,7 @@ const processMetadata = (m: Partial<Metadata>): Metadata => {
 	metadata.editDate = dayjs(metadata.editDate, "D-M-YYYY")
 		.toDate()
 		.toLocaleDateString("en-GB")
-		.replace("01/08/2005", "xx/08/2005");
+		.replace("01/08/2005", "xx/xx/xxxx");
 	return metadata;
 };
 
@@ -87,7 +89,7 @@ export const getMetadata = (name: string) => {
 	const markdown = remark.parse(file);
 	const metadata: Partial<Metadata> =
 		yaml.load((markdown.children[0] as any).value) ?? {}; // eslint-disable-line @typescript-eslint/no-explicit-any
-	metadata.name = name;
+	metadata.title = name;
 	return processMetadata(metadata);
 };
 
@@ -128,6 +130,6 @@ export const list = (): Metadata[] => {
 			if (ad !== bd) {
 				return ad > bd ? -1 : 1;
 			}
-			return a.name > b.name ? 1 : -1;
+			return a.title > b.title ? 1 : -1;
 		});
 };
