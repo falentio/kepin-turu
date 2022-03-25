@@ -48,7 +48,8 @@
 	/>
 </div>
 <div class="mb-4 text-center">{metadata.desc}</div>
-<div class="c mb-4 flex flex-col gap-2">{@html content}</div>
+<div class="c mb-auto flex flex-col gap-2">{@html content}</div>
+<div class="m-2" />
 <div class="flex flex-row">
 	<NextPrevBtn target={prev} text="Prev:" class="text-left" />
 	<div class="mx-auto" />
