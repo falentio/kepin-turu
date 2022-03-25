@@ -6,5 +6,5 @@
 </script>
 
 {#each tags as tag (tag)}
-	<div class={$$props.class}>#{tag}</div>
+	<button on:click class={$$props.class}>#{tag}</button>
 {/each}

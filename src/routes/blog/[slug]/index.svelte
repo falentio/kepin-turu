@@ -45,7 +45,7 @@
 			alt="cover images"
 			width="300"
 			height="200"
-			class="mx-auto"
+			class="mx-auto rounded-2xl"
 		/>
 	</div>
 	<div class="text-center">{metadata.desc}</div>
