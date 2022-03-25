@@ -3,7 +3,6 @@
 	export const prerender = true;
 	const icons = [
 		{ href: "https://github.com/falentio/kepin-turu", icon: "mdi:github" },
-		{ href: "https://t.me/falentio", icon: "mdi:telegram" },
 	];
 </script>
 
