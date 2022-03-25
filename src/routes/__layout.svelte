@@ -21,7 +21,7 @@
 		class:hidden={!browser}
 	>
 		<Navbar />
-		<div class="container mx-auto flex-auto flex flex-col px-4 py-4">
+		<div class="container mx-auto flex flex-auto flex-col px-4 py-4">
 			<slot />
 		</div>
 		<Footer />
