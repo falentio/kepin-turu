@@ -16,7 +16,7 @@
 		title: metadata.title.replace(/-/g, " "),
 		description: metadata.desc,
 		openGraph: {
-			title: metadata.title,
+			title: metadata.title.replace(/-/g, " "),
 			description: metadata.desc,
 			type: "website",
 			images: [
