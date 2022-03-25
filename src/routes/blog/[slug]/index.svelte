@@ -29,40 +29,46 @@
 </script>
 
 <MetaTags {...metatags} />
-<h1 class="mb-4 text-center text-3xl capitalize">
-	{metadata.title.replace(/-/g, " ")}
-</h1>
-<div class="mb-4 text-center">
-	Posted on: {metadata.postDate} <br />
-	{#if !metadata.editDate.startsWith("x")}
-		Last edit: {metadata.editDate} <br />
-	{/if}
-</div>
-<div class="mx-auto mb-4">
-	<img
-		src={metadata.image}
-		alt="cover images"
-		width="300"
-		height="200"
-		class="mx-auto"
-	/>
-</div>
-<div class="mb-4 text-center">{metadata.desc}</div>
-<div class="c mb-auto flex flex-col gap-2">{@html content}</div>
-<div class="m-2" />
-<div class="flex flex-row">
-	<NextPrevBtn target={prev} text="Prev:" class="text-left" />
-	<div class="mx-auto" />
-	<NextPrevBtn target={next} text="Next:" class="text-right" />
+<div class="flex flex-auto flex-col gap-4">
+	<h1 class="text-center text-3xl font-bold capitalize">
+		{metadata.title.replace(/-/g, " ")}
+	</h1>
+	<div class="text-center">
+		Posted on: {metadata.postDate} <br />
+		{#if !metadata.editDate.startsWith("x")}
+			Last edit: {metadata.editDate} <br />
+		{/if}
+	</div>
+	<div class="mx-auto">
+		<img
+			src={metadata.image}
+			alt="cover images"
+			width="300"
+			height="200"
+			class="mx-auto"
+		/>
+	</div>
+	<div class="text-center">{metadata.desc}</div>
+	<div class="c mb-auto flex flex-col gap-2">{@html content}</div>
+	<div class="flex-auto" />
+	<div class="flex flex-row">
+		<NextPrevBtn target={prev} text="Prev:" class="text-left" />
+		<div class="mx-auto" />
+		<NextPrevBtn target={next} text="Next:" class="text-right" />
+	</div>
 </div>
 
 <style lang="postcss">
 	div.c :global(h1) {
-		@apply text-2xl capitalize md:text-4xl;
+		@apply text-2xl font-bold capitalize md:text-4xl;
 	}
 
 	div.c :global(h2) {
-		@apply text-xl capitalize md:text-3xl;
+		@apply text-xl font-bold capitalize md:text-3xl;
+	}
+
+	div.c :global(h3) {
+		@apply font-bold;
 	}
 
 	div.c :global(a[href^="http"]) {

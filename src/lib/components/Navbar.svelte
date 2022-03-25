@@ -13,7 +13,7 @@
 		class="container mx-auto flex h-14 gap-2 px-2 text-xl md:h-20 md:text-3xl"
 	>
 		<div class="my-auto">
-			<a href="/"> Kepin </a>
+			<a href="/" class="font-bold"> Kepin </a>
 			<div class="flex flex-row gap-3 text-sm">
 				<a href="/">home</a>
 				<a href="/blog">blog</a>

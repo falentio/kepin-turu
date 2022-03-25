@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.abel {
+	font-family: "Abel", sans-serif;
+}
+
 /** shiki configuration */
 .dark .rehype-shiki > .shiki-light {
 	display: none;
@@ -15,6 +19,10 @@
 pre.shiki {
 	overflow-x: auto;
 	overflow-y: hidden;
+}
+
+.shiki > code > span {
+	font-family: "IBM Plex Mono", monospace;
 }
 
 pre.shiki > code {
