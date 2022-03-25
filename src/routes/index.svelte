@@ -22,12 +22,13 @@
 			/>
 		</a>
 	</div>
-	<div class="mx-auto flex flex-wrap">
-		halo saya kevin falentio. ini web kecil saya.
+	<div class="mx-auto flex w-60 flex-wrap text-xl font-bold md:w-80">
+		<span class="mx-auto">halo saya kevin falentio.</span>
+		<span class="mx-auto">ini web kecil saya.</span>
 	</div>
 	<div>
-		saya mebuat web ini menggunakan
-		<ul>
+		<div class="">saya mebuat web ini menggunakan</div>
+		<ul class="capitalize">
 			<li>
 				<a
 					class="flex w-max gap-1"
