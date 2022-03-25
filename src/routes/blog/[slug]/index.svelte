@@ -5,36 +5,55 @@
 
 <script lang="ts">
 	import type { BlogData } from "./_types";
-	import { title } from "$lib/store/title";
+	import type { MetaTagsProps } from "svelte-meta-tags";
+	import { goto, invalidate } from "$app/navigation"
+	import { MetaTags } from "svelte-meta-tags";
+	import NextPrevBtn from "$lib/components/NextPrevBtn.svelte"
 	export let blogData: BlogData;
-	title.set(blogData.metadata.title + "");
+	const { metadata, content, next, prev } = blogData;
+	const metatags: MetaTagsProps = {
+		title: metadata.title,
+		description: metadata.desc,
+		openGraph: {
+			title: metadata.title,
+			description: metadata.desc,
+			type: "websote",
+			images: [{
+				url: metadata.ogImage || metadata.image,
+			}],
+		}
+	};
 </script>
 
-<div class="my-2 flex flex-col gap-4">
-	<h1 class="text-center text-3xl capitalize">
-		{blogData.metadata.title}
-	</h1>
-	<div class="text-center">
-		Posted on: {blogData.metadata.postDate}
-	</div>
-	<div class="mx-auto">
-		<img
-			src={blogData.metadata.image}
-			alt="cover images"
-			width="300"
-			height="200"
-		/>
-	</div>
-	<div class="c">{@html blogData.content}</div>
+<MetaTags {...metatags} />
+
+<h1 class="text-center text-3xl capitalize mb-4">
+	{metadata.title.replace(/-/g, " ")}
+</h1>
+<div class="text-center mb-4">
+	Posted on: {metadata.postDate} <br />
+	{#if !metadata.editDate.startsWith("x") }
+		Last edit: {metadata.editDate} <br />
+	{/if}
+</div>
+<div class="mx-auto mb-4">
+	<img src={metadata.image} alt="cover images" width="300" height="200" class="mx-auto" />
+</div>
+<div class="mb-4">{metadata.desc}</div>
+<div class="c flex flex-col gap-2 mb-4">{@html content}</div>
+<div class="flex flex-row">
+	<NextPrevBtn target={prev} text="Prev:" class="bg-blue-700f border-solid border-2 border-zinc-700 w-36 py-1 px-3 font-serif shadow-md text-left"/>
+	<div class="mx-auto"></div>
+	<NextPrevBtn target={next} text="Next:" class="bg-blue-70f0 border-solid border-2 border-zinc-700 w-36 py-1 px-3 font-serif shadow-md text-right"/>
 </div>
 
 <style lang="postcss">
 	div.c :global(h1) {
-		@apply pt-5 text-2xl md:text-4xl;
+		@apply text-2xl md:text-4xl capitalize;
 	}
 
 	div.c :global(h2) {
-		@apply py-2 text-xl md:text-3xl;
+		@apply text-xl md:text-3xl capitalize;
 	}
 
 	div.c :global(a[href^="http"]) {

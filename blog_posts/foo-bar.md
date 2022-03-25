@@ -1,6 +1,7 @@
 ---
-title: foo-bar
+desc: foo bar
 postDate: 1-1-2022
+editDate: 1-1-2033
 tags:
     - foo
     - bar
@@ -8,7 +9,7 @@ tags:
     - qux
 ---
 
-in occaecat incididunt elit fugiat duis nostrud proident sunt .laboris officia eiusmod ea officia ut in et occaecat nostrud duis exercitation do est ut mollit.
+In occaecat incididunt elit fugiat duis nostrud proident sunt .laboris officia eiusmod ea officia ut in et occaecat nostrud duis exercitation do est ut mollit.
 
 # hello 1
 

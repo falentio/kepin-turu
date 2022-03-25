@@ -3,7 +3,6 @@
 	import Footer from "$lib/components/Footer.svelte";
 	import Navbar from "$lib/components/Navbar.svelte";
 	import { theme, init as initTheme } from "$lib/store/theme";
-	import { title } from "$lib/store/title";
 	import { browser } from "$app/env";
 	import { onMount } from "svelte";
 	$: if (browser) {
@@ -16,16 +15,13 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{$title}</title>
-</svelte:head>
 <div class={$theme}>
 	<div
 		class="flex h-screen h-max min-h-screen flex-col bg-gray-100 text-black dark:bg-zinc-800 dark:text-gray-100 md:text-xl"
 		class:hidden={!browser}
 	>
 		<Navbar />
-		<div class="container mx-auto mb-auto px-4">
+		<div class="container mx-auto mb-auto px-4 py-4">
 			<slot />
 		</div>
 		<Footer />

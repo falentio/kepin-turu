@@ -7,7 +7,7 @@
 </script>
 
 <div
-	class="mb-2 flex flex-col bg-gray-100 py-1 capitalize shadow-sm dark:bg-zinc-800"
+	class="flex flex-col bg-gray-100 py-1 capitalize shadow-sm dark:bg-zinc-800"
 >
 	<div
 		class="container mx-auto flex h-14 gap-2 px-2 text-xl md:h-20 md:text-3xl"
@@ -23,6 +23,3 @@
 		<SwitchThemeBtn class="p-2" />
 	</div>
 </div>
-
-<style lang="postcss">
-</style>

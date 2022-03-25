@@ -1,6 +1,14 @@
 <script lang="ts">
 	import Icon from "@iconify/svelte";
+	import type { MetaTagsProps } from "svelte-meta-tags";
+	import { MetaTags } from "svelte-meta-tags";
+
+	const metatags: MetaTagsProps = {
+		title: "my small",
+	};
 </script>
+
+<MetaTags {...metatags} />
 
 <div class="flex flex-col justify-center gap-5 py-5">
 	<div class="mx-auto">

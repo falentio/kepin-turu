@@ -1,4 +1,5 @@
 ---
+desc: halo dunia!!!
 tags:
     - golang
     - nodejs
@@ -6,7 +7,7 @@ tags:
     - halo dunia
 ---
 
-contoh contoh http server yang memiliki response "`halo dunia`"
+Contoh contoh http server yang meresponse dengan "`halo dunia`"
 
 # Deno
 
