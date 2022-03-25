@@ -1,6 +1,6 @@
 ---
-title: CORS in many diffrent programming language
-date: 23-3-2022
+title: CORS in many different programming language
+postDate: 23-3-2022
 tags:
     - golang
     - nodejs
@@ -9,7 +9,7 @@ tags:
     - rosetta
 ---
 
-Yes, another rosetta but for cors. Pardon me if some example goes unexpected.
+yes, another rosetta but for cors. Pardon me if some example goes unexpected.
 Please open [issue](https://github.com/falentio/kepin-turu/issues/new) or create [pull request](https://github.com/falentio/kepin-turu/compare) if some example is wrong.
 
 # Nodejs

@@ -1,7 +1,9 @@
+import type { Highlighter } from "shiki";
 import path from "path";
 import fs from "fs";
 import yaml from "js-yaml";
 import dayjs from "dayjs";
+import parseFmt from "dayjs/plugin/customParseFormat.js";
 import shiki from "shiki";
 import { isElement } from "hast-util-is-element";
 import { unified } from "unified";
@@ -14,21 +16,18 @@ import rehypeShiki from "@leafac/rehype-shiki";
 import rehypeStringify from "rehype-stringify";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
-import type { Highlighter } from "shiki";
 
 const blogPosts = "blog_posts";
-
-export type BlogList = {
-	name: string;
-	metadata: Metadata;
-	text: string;
-}[];
+dayjs.extend(parseFmt);
 
 export interface Metadata {
-	date: string;
-	dateMs: number;
-	image: string;
+	postDate: string;
+	postDateMs: number;
+	editDate: string;
+	editDateMs: number;
+	name: string;
 	title: string;
+	image: string;
 	tags: string[];
 }
 
@@ -56,8 +55,11 @@ const remark = unified()
 	.use(remarkFrontmatter, ["yaml"]);
 
 const defaultMetadata: Metadata = {
-	date: "1-8-2005",
-	dateMs: 0,
+	name: "",
+	postDate: "1-8-2005",
+	postDateMs: 0,
+	editDate: "",
+	editDateMs: 0,
 	image: "https://picsum.photos/id/353/300/200",
 	title: "Hello World!!!",
 	tags: [],
@@ -65,25 +67,28 @@ const defaultMetadata: Metadata = {
 
 const processMetadata = (m: Partial<Metadata>): Metadata => {
 	const metadata: Metadata = Object.assign({}, defaultMetadata, m);
-	metadata.dateMs = dayjs(metadata.date, "DD-MM-YYYY").unix();
+	metadata.editDate ||= m.postDate;
+	metadata.postDateMs = dayjs(metadata.postDate, "D-M-YYYY").valueOf();
+	metadata.postDate = dayjs(metadata.postDate, "D-M-YYYY")
+		.toDate()
+		.toLocaleDateString("en-GB")
+		.replace("01/08/2005", "xx/08/2005");
+	metadata.editDateMs = dayjs(metadata.editDate, "D-M-YYYY").valueOf();
+	metadata.editDate = dayjs(metadata.editDate, "D-M-YYYY")
+		.toDate()
+		.toLocaleDateString("en-GB")
+		.replace("01/08/2005", "xx/08/2005");
 	return metadata;
 };
 
 export const getMetadata = (name: string) => {
-	name = resolve(name);
-	const file = vfile.readSync(name);
+	const filepath = resolve(name);
+	const file = vfile.readSync(filepath);
 	const markdown = remark.parse(file);
 	const metadata: Partial<Metadata> =
 		yaml.load((markdown.children[0] as any).value) ?? {}; // eslint-disable-line @typescript-eslint/no-explicit-any
+	metadata.name = name;
 	return processMetadata(metadata);
-};
-
-export const getPeviewText = (name: string) => {
-	name = resolve(name);
-	let text = fs.readFileSync(name).toString().slice(3);
-	text = text.slice(text.indexOf("---") + 3);
-	text = text.slice(0, 500);
-	return text;
 };
 
 export const getContent = async (name: string) => {
@@ -108,23 +113,18 @@ export const getContent = async (name: string) => {
 	return rehype.stringify(html);
 };
 
-export const list = (): BlogList => {
+export const list = (): Metadata[] => {
 	return fs
 		.readdirSync(blogPosts)
 		.filter((i) => path.extname(i) === ".md")
 		.map((i) => {
 			const name = path.basename(i, ".md");
 			const metadata = getMetadata(name);
-			const text = getPeviewText(name);
-			return {
-				name,
-				metadata,
-				text,
-			};
+			return metadata;
 		})
 		.sort((a, b) => {
-			const ad = a.metadata.date;
-			const bd = b.metadata.date;
+			const ad = a.postDateMs;
+			const bd = b.postDateMs;
 			if (ad !== bd) {
 				return ad > bd ? -1 : 1;
 			}

@@ -3,11 +3,11 @@ tags:
     - golang
     - nodejs
     - deno
-    - hello
-    - world
+    - hello world
+    - simple
 ---
 
-hello world.
+some example code in diffrent language that print out "`hello world!!!`" to stdout
 
 # rust
 

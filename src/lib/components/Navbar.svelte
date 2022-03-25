@@ -1,16 +1,14 @@
-<script lang="ts">
-	import Icon from "@iconify/svelte";
-	import { theme, switchTheme } from "$lib/store/theme";
-
-	const iconSet = {
-		dark: "carbon:moon",
-		light: "carbon:sun",
-	};
-	let icon: string;
-	$: icon = iconSet[$theme];
+<script lang="ts" context="module">
+	export const prerender = true;
 </script>
 
-<div class="flex flex-col bg-gray-100 py-1 shadow-sm dark:bg-zinc-800">
+<script lang="ts">
+	import SwitchThemeBtn from "$lib/components/SwitchThemeBtn.svelte";
+</script>
+
+<div
+	class="mb-2 flex flex-col bg-gray-100 py-1 capitalize shadow-sm dark:bg-zinc-800"
+>
 	<div
 		class="container mx-auto flex h-14 gap-2 px-2 text-xl md:h-20 md:text-3xl"
 	>
@@ -22,11 +20,7 @@
 			</div>
 		</div>
 		<div class="mr-auto" />
-		<button class="aspect-square p-2" on:click={switchTheme}>
-			<div class="h-full">
-				<Icon {icon} class="h-full w-full dark:text-zinc-700" />
-			</div>
-		</button>
+		<SwitchThemeBtn class="p-2" />
 	</div>
 </div>
 
