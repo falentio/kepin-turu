@@ -17,11 +17,11 @@
 
 <div class={$theme}>
 	<div
-		class="flex h-max min-h-screen flex-col bg-gray-100 text-black dark:bg-zinc-800 dark:text-gray-100 md:text-xl bg-sky-500"
+		class="flex h-max min-h-screen flex-col bg-gray-100 text-black dark:bg-zinc-800 dark:text-gray-100 md:text-xl"
 		class:hidden={!browser}
 	>
 		<Navbar />
-		<div class="container mx-auto flex-auto flex flex-col px-4 py-4 bg-sky-400">
+		<div class="container mx-auto flex-auto flex flex-col px-4 py-4">
 			<slot />
 		</div>
 		<Footer />
