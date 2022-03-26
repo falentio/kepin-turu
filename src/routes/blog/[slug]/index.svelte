@@ -12,7 +12,7 @@
 	export let content: string;
 	export let prev: string | null;
 	export let next: string | null;
-	let metatags: MetaTagsProps 
+	let metatags: MetaTagsProps;
 	$: metatags = {
 		title: metadata.title.replace(/-/g, " "),
 		description: metadata.desc,
@@ -84,12 +84,12 @@
 	div.c :global(li::before) {
 		content: counter(c);
 		counter-increment: c;
-		@apply mr-2
+		@apply mr-2;
 	}
 
 	div.c :global(ol ol li::before) {
 		content: counters(c, ".") " ";
 		counter-increment: c;
-		@apply mr-2 pl-4
+		@apply mr-2 pl-4;
 	}
 </style>

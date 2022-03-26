@@ -6,9 +6,7 @@
 	import SwitchThemeBtn from "$lib/components/SwitchThemeBtn.svelte";
 </script>
 
-<nav
-	class="flex flex-col py-1 capitalize shadow-sm "
->
+<nav class="flex flex-col py-1 capitalize shadow-sm ">
 	<section
 		class="container mx-auto flex h-14 gap-2 px-2 text-xl md:h-20 md:text-3xl"
 	>
