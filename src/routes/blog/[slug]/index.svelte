@@ -12,7 +12,8 @@
 	export let content: string;
 	export let prev: string | null;
 	export let next: string | null;
-	const metatags: MetaTagsProps = {
+	let metatags: MetaTagsProps 
+	$: metatags = {
 		title: metadata.title.replace(/-/g, " "),
 		description: metadata.desc,
 		openGraph: {
@@ -73,5 +74,22 @@
 
 	div.c :global(a[href^="http"]) {
 		@apply text-blue-600;
+	}
+
+	div.c :global(ol) {
+		counter-reset: c;
+		/* counter-increment: c 0; */
+	}
+
+	div.c :global(li::before) {
+		content: counter(c);
+		counter-increment: c;
+		@apply mr-2
+	}
+
+	div.c :global(ol ol li::before) {
+		content: counters(c, ".") " ";
+		counter-increment: c;
+		@apply mr-2 pl-4
 	}
 </style>
