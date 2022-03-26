@@ -35,9 +35,12 @@ pre.shiki > code > .line::before {
 	content: counter(step);
 	counter-increment: step;
 	width: 2rem;
-	margin-right: 0.5rem;
+	margin-right: 1rem;
 	display: inline-block;
 	text-align: right;
 	border-right: inset;
 	padding-right: 0.5rem;
+	position: sticky;
+	left: 0;
+	@apply bg-white dark:bg-[#282A36];
 }
