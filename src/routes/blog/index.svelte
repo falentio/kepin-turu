@@ -15,7 +15,7 @@
 
 <div class="flex flex-col justify-center gap-5">
 	{#each displayed as metadata (metadata.title)}
-		<div class="rounded-md p-2 shadow-lg">
+		<div class="rounded-md p-2 shadow-md">
 			<div class="grid grid-cols-3 overflow-hidden">
 				<a
 					href="blog/{metadata.title}"

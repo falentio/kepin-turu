@@ -6,10 +6,8 @@
 	import SwitchThemeBtn from "$lib/components/SwitchThemeBtn.svelte";
 </script>
 
-<div
-	class="flex flex-col bg-gray-100 py-1 capitalize shadow-sm dark:bg-zinc-800"
->
-	<div
+<nav class="flex flex-col py-1 capitalize shadow-sm ">
+	<section
 		class="container mx-auto flex h-14 gap-2 px-2 text-xl md:h-20 md:text-3xl"
 	>
 		<div class="my-auto">
@@ -21,5 +19,5 @@
 		</div>
 		<div class="mr-auto" />
 		<SwitchThemeBtn class="p-2" />
-	</div>
-</div>
+	</section>
+</nav>
