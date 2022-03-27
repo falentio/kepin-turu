@@ -78,7 +78,6 @@
 
 	div.c :global(ol) {
 		counter-reset: c;
-		/* counter-increment: c 0; */
 	}
 
 	div.c :global(li::before) {
