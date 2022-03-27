@@ -10,7 +10,7 @@
 
 <button
 	class:invisible={target === null}
-	class="{$$props.class} abel w-36 rounded-md border-2 border-solid border-zinc-700 py-1 px-3 shadow-md md:w-48"
+	class="{$$props.class} md:text-md w-36 rounded-md border-2 border-solid border-zinc-700 py-1 px-3 text-sm shadow-md md:w-48"
 	on:click={() => goto(target)}
 >
 	<div class="truncate">{text}</div>
