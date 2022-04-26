@@ -13,10 +13,10 @@
 
 <MetaTags {...metatags} />
 
-<div class="flex flex-col justify-center gap-5">
+<div class="flex flex-col justify-center divide-y-2 dark:divide-zinc-700">
 	{#each displayed as metadata (metadata.title)}
-		<div class="rounded-md p-2 shadow-md">
-			<div class="grid grid-cols-3 overflow-hidden">
+		<div class="p-2">
+			<div class="grid grid-cols-3 overflow-hidden pt-2">
 				<a
 					href="blog/{metadata.title}"
 					class="h-auto object-cover md:m-2"
@@ -24,7 +24,7 @@
 					<img
 						src={metadata.image}
 						alt={metadata.title}
-						class="rounded-sm"
+						class="rounded-md"
 						width="300"
 						height="200"
 					/>
@@ -48,7 +48,7 @@
 					>
 						<Tags
 							tags={metadata.tags}
-							class="rounded-md p-1 shadow-md"
+							class="rounded-md p-1 shadow-sm"
 						/>
 					</div>
 				</div>
@@ -57,7 +57,7 @@
 				>
 					<Tags
 						tags={metadata.tags}
-						class="rounded-md p-1 shadow-md"
+						class="rounded-md p-1 shadow-sm"
 					/>
 				</div>
 			</div>

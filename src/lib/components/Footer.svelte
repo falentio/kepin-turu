@@ -12,7 +12,7 @@
 
 <footer>
 	<div
-		class="flex flex-col justify-center bg-zinc-200 py-1 text-center dark:bg-zinc-900"
+		class="flex flex-col justify-center text-white dark:border-t-2 border-solid border-zinc-700 py-2 text-center bg-zinc-900"
 	>
 		<div>My Small Website</div>
 		<div class="flex flex-row justify-center">

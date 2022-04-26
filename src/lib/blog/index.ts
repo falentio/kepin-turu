@@ -36,7 +36,7 @@ export const resolve = (name: string) => path.resolve(blogPosts, name + ".md");
 
 const highlighterPromise: Record<string, Promise<Highlighter>> = {
 	"shiki-dark": shiki.getHighlighter({
-		theme: "dracula-soft",
+		theme: "rose-pine-moon",
 	}),
 	"shiki-light": shiki.getHighlighter({
 		theme: "min-light",

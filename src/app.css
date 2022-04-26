@@ -19,7 +19,7 @@
 pre.shiki {
 	overflow-x: auto;
 	overflow-y: hidden;
-	@apply rounded-md;
+	@apply rounded-md border-2 border-solid border-zinc-300 dark:border-zinc-800;
 }
 
 .shiki > code > span {
@@ -38,9 +38,8 @@ pre.shiki > code > .line::before {
 	margin-right: 1rem;
 	display: inline-block;
 	text-align: right;
-	border-right: inset;
 	padding-right: 0.5rem;
 	position: sticky;
 	left: 0;
-	@apply bg-white dark:bg-[#282A36];
+	@apply bg-white dark:bg-[#232136];
 }
