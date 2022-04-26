@@ -61,8 +61,8 @@ const defaultMetadata: Metadata = {
 	postDateMs: 0,
 	editDate: "",
 	editDateMs: 0,
-	image: "https://picsum.photos/id/881/300/200",
-	ogImage: "https://picsum.photos/id/881/1200/630",
+	image: "https://catsum.deno.dev/seed/sri/300/200",
+	ogImage: "https://catsum.deno.dev/seed/sri/1200/630",
 	desc: "Hello World!!!",
 	tags: [],
 };
