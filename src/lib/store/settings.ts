@@ -1,51 +1,56 @@
 import { writable } from "svelte/store";
 
 export interface Settings {
-	theme?: "dark"
-	font?: "abel"
+	theme?: string;
+	font?: string;
 }
 
-const ITEM_NAME = "kepin-turu-settings"
+const ITEM_NAME = "kepin-turu-settings";
 
 const getFromStorage = (): Settings | null => {
-	const local = window.localStorage.getItem(ITEM_NAME)
+	const local = window.localStorage.getItem(ITEM_NAME);
 	if (local === null) {
-		return null
+		return null;
 	}
 	try {
-		return JSON.parse(local) as Settings
+		return JSON.parse(local) as Settings;
 	} catch {
-		return {} as Settings
+		return {} as Settings;
 	}
-}
+};
 
 const setToStorage = (s: Settings) => {
-	const str = JSON.stringify(s)
-	window.localStorage.setItem(ITEM_NAME, str)
-}
+	const str = JSON.stringify(s);
+	window.localStorage.setItem(ITEM_NAME, str);
+};
 
-export const settings = new writable<Settings>({})
+export const settings = writable<Settings>({});
 
 export const init = () => {
-	const stored = getFromStorage()
+	const stored = getFromStorage();
 	if (stored !== null) {
-		settings.set(stored)
+		settings.set(stored);
 	}
-	settings.subscribe(v => {
-		setToStorage(v)
-	})
-}
+	settings.subscribe((s: Settings) => {
+		setToStorage(s);
+	});
+	settings.update((s: Settings) => {
+		s.font ||= "abel";
+		s.theme ||= "dark";
+		return s;
+	});
+};
 
 export const switchTheme = () => {
-	settings.update(v => {
-		v.theme = v.theme === "light" ? "dark" : "light"
-		return v
-	})
-}
+	settings.update((s: Settings) => {
+		s.theme = s.theme === "light" ? "dark" : "light";
+		return s;
+	});
+};
 
 export const changeFont = (name: string) => {
-	theme.update(v => {
-		v.font = name
-		return v
-	})
-}
+	settings.update((s: Settings) => {
+		s.font = name;
+		return s;
+	});
+};
