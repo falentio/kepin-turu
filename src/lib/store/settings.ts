@@ -51,12 +51,12 @@ export const switchTheme = () => {
 export const getFontClass = (name?: string) => {
 	switch (name) {
 		case "roboto":
-			return "roboto"
+			return "roboto";
 		case "open sans":
-			return "openSans"
+			return "openSans";
 		case "dm sans":
-			return "dmSans"
+			return "dmSans";
 		default:
-			return "abel"
+			return "abel";
 	}
-}
+};

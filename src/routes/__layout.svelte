@@ -21,13 +21,14 @@
 			document.querySelector(window.location.hash)?.scrollIntoView();
 		}
 	});
-
 </script>
 
 <Favicon />
 <div class={$settings.theme}>
 	<div
-		class="{getFontClass($settings.font)} flex min-h-screen flex-col bg-white text-black dark:bg-zinc-900 dark:text-stone-200 md:text-xl"
+		class="{getFontClass(
+			$settings.font
+		)} flex min-h-screen flex-col bg-white text-black dark:bg-zinc-900 dark:text-stone-200 md:text-xl"
 		class:hidden={!browser}
 	>
 		<Navbar />
