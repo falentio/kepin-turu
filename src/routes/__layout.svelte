@@ -3,12 +3,13 @@
 	import "@fontsource/abel/400.css";
 	import "@fontsource/ibm-plex-mono/400.css";
 	import Footer from "$lib/components/Footer.svelte";
+	import Favicon from "$lib/components/Favicon.svelte";
 	import Navbar from "$lib/components/Navbar.svelte";
-	import { theme, init as initTheme } from "$lib/store/theme";
+	import { settings, init } from "$lib/store/settings";
 	import { browser } from "$app/env";
 	import { onMount } from "svelte";
 	$: if (browser) {
-		initTheme();
+		init();
 	}
 	onMount(() => {
 		if (window.location.hash !== "") {
@@ -17,7 +18,9 @@
 	});
 </script>
 
-<div class={$theme}>
+<Favicon />
+
+<div class={$settings.theme}>
 	<div
 		class="abel flex min-h-screen flex-col bg-white text-black dark:bg-zinc-900 dark:text-stone-200 md:text-xl"
 		class:hidden={!browser}

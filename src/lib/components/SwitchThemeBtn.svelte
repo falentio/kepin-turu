@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Icon from "@iconify/svelte";
-	import { theme, switchTheme } from "$lib/store/theme";
+	import { settings, switchTheme } from "$lib/store/settings";
 
 	const iconSet = {
 		dark: "carbon:moon",
 		light: "carbon:sun",
 	};
-	$: icon = iconSet[$theme];
+	$: icon = iconSet[$settings.theme];
 </script>
 
 <button class={$$props.class} on:click={switchTheme}>
