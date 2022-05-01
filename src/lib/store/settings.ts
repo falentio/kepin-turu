@@ -48,9 +48,15 @@ export const switchTheme = () => {
 	});
 };
 
-export const changeFont = (name: string) => {
-	settings.update((s: Settings) => {
-		s.font = name;
-		return s;
-	});
-};
+export const getFontClass = (name?: string) => {
+	switch (name) {
+		case "roboto":
+			return "roboto"
+		case "open sans":
+			return "openSans"
+		case "dm sans":
+			return "dmSans"
+		default:
+			return "abel"
+	}
+}

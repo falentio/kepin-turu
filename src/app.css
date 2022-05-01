@@ -7,6 +7,18 @@
 	font-family: "Abel", sans-serif;
 }
 
+.openSans {
+	font-family: "Open Sans", sans-serif;
+}
+
+.roboto {
+	font-family: "Roboto", sans-serif;
+}
+
+.dmSans {
+	font-family: "DM Sans", sans-serif;
+}
+
 /** shiki configuration */
 .dark .rehype-shiki > .shiki-light {
 	display: none;
