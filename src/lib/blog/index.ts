@@ -67,9 +67,9 @@ const defaultMetadata: Metadata = {
 	tags: [],
 };
 
-const hash = (str: string) => {
+const hash = (data: string[]) => {
 	let n = 1;
-	for (const s of str) {
+	for (const s of data.join("")) {
 		n -= s.charCodeAt(0) ** 2 * n;
 		n ^= n << 5;
 		n ^= n >>> 17;
@@ -82,7 +82,7 @@ const hash = (str: string) => {
 const getCatPlaceholder = (s: string[], width: number, height?: number) => {
 	return [
 		"https://catsum.deno.dev/seed",
-		hash(s.join("")),
+		hash(s),
 		width.toString(),
 		height?.toString(),
 	].join("/");
