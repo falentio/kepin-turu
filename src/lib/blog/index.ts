@@ -28,7 +28,6 @@ export interface Metadata {
 	editDate: string;
 	editDateMs: number;
 	image: string;
-	ogImage: string;
 	tags: string[];
 }
 
@@ -62,7 +61,6 @@ const defaultMetadata: Metadata = {
 	editDate: "",
 	editDateMs: 0,
 	image: "",
-	ogImage: "",
 	desc: "Hello World!!!",
 	tags: [],
 };
