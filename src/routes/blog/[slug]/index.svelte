@@ -22,7 +22,7 @@
 			type: "website",
 			images: [
 				{
-					url: metadata.ogImage || metadata.image,
+					url: metadata.image,
 				},
 			],
 		},
@@ -44,8 +44,8 @@
 		<img
 			src={metadata.image}
 			alt="cover images"
-			width="300"
-			height="200"
+			width="1200"
+			height="630"
 			class="mx-auto rounded-2xl"
 		/>
 	</div>
@@ -69,7 +69,7 @@
 	}
 
 	div.c :global(h3) {
-		@apply font-bold;
+		@apply font-bold capitalize;
 	}
 
 	div.c :global(a[href^="http"]) {
