@@ -61,14 +61,40 @@ const defaultMetadata: Metadata = {
 	postDateMs: 0,
 	editDate: "",
 	editDateMs: 0,
-	image: "https://catsum.deno.dev/seed/sri/300/200",
-	ogImage: "https://catsum.deno.dev/seed/sri/1200/630",
+	image: "",
+	ogImage: "",
 	desc: "Hello World!!!",
 	tags: [],
 };
 
+const hash = (str: string) => {
+	let n = 1;
+	for (const s of str) {
+		n -= s.charCodeAt(0) ** 2 * n;
+		n ^= n << 5;
+		n ^= n >>> 17;
+		n ^= n << 13;
+	}
+	n >>>= 0;
+	return n.toString(16) + n.toString(36);
+};
+
+const getCatPlaceholder = (s: string[], width: number, height?: number) => {
+	return [
+		"https://catsum.deno.dev/seed",
+		hash(s.join("")),
+		width.toString(),
+		height?.toString(),
+	].join("/");
+};
+
 const processMetadata = (m: Partial<Metadata>): Metadata => {
 	const metadata: Metadata = Object.assign({}, defaultMetadata, m);
+	metadata.image ||= getCatPlaceholder(
+		[m.title, ...m.tags].sort(),
+		1200,
+		630
+	);
 	metadata.editDate ||= metadata.postDate;
 	metadata.postDateMs = dayjs(metadata.postDate, "D-M-YYYY").valueOf();
 	metadata.postDate = dayjs(metadata.postDate, "D-M-YYYY")

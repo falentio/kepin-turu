@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { settings, getFontClass, switchTheme } from "$lib/store/settings";
+	import { settings, switchTheme } from "$lib/store/settings";
 	let fonts = ["abel", "open sans", "roboto", "dm sans"];
 
 	let font = fonts.find((i) => i === $settings.font) || "abel";
