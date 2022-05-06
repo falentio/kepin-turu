@@ -1,2 +1,6 @@
-/_app/*
-  Cache-Control: public, max-age=3153600
+/_app/pages/*
+  Cache-Control: public, max-age=3153600, immutable
+/_app/chunks/*
+  Cache-Control: public, max-age=3153600, immutable
+/_app/assets/pages/*
+  Cache-Control: public, max-age=3153600, immutable
