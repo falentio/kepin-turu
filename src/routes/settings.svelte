@@ -1,12 +1,7 @@
 <script lang="ts">
 	import { settings } from "$lib/store/settings";
 	let theme = $settings.theme;
-	let fonts = [
-		"abel", 
-		"dm sans",
-		"open sans", 
-		"roboto", 
-	];
+	let fonts = ["abel", "dm sans", "open sans", "roboto"];
 	let font = fonts.find((i) => i === $settings.font) || "abel";
 	$: $settings.font = font;
 	$: $settings.theme = theme;
