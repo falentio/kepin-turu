@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { settings, switchTheme } from "$lib/store/settings";
-	let fonts = ["abel", "open sans", "roboto", "dm sans"];
-
+	import { settings } from "$lib/store/settings";
+	let theme = $settings.theme;
+	let fonts = ["abel", "dm sans", "open sans", "roboto"];
 	let font = fonts.find((i) => i === $settings.font) || "abel";
 	$: $settings.font = font;
-	$: theme = $settings.theme;
+	$: $settings.theme = theme;
 </script>
 
 <div class="text-2xl font-bold md:text-4xl">Settings</div>
@@ -25,7 +25,6 @@
 		<select
 			class="rounded-md border border-zinc-700 bg-inherit"
 			bind:value={theme}
-			on:change={switchTheme}
 		>
 			{#each ["dark", "light"] as name (name)}
 				<option value={name} class="">{name}</option>
