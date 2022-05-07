@@ -9,12 +9,14 @@ tags:
 ---
 
 # Catsum
+
 https://catsum.deno.dev
 
 Catsum is random cat images generator.
 Highly inspired with picsum.photo but only focused to Cat Photo.
 
 ## Catsum created using:
+
 1. Typescript
 2. Deno
 3. Imgix
@@ -24,6 +26,7 @@ All images are received from flickr api, and stored in single csv file so I dont
 Images processing like crop, blur, grayscaling, and format converter are done bt Imgix.
 
 ## Features
+
 1. Random Cat Images
 2. Crop Images
 3. Grayscale
@@ -32,17 +35,20 @@ Images processing like crop, blur, grayscaling, and format converter are done bt
 6. Dynamic seed
 
 ## Random Number Generator
+
 To generate random image based on seed, I use 32bit xorshift RNG, and manipulate each char code of seed chars to initial state of RNG. Each Request will using diffrent RNG, and create new one.
 
 Below is small 32bit xorshift I used
+
 ```ts
 function xorshift(n: number) {
-    n ^= n << 13;
-    n ^= n >>> 17;
-    n ^= n << 5;
-    return n;
-};
+	n ^= n << 13;
+	n ^= n >>> 17;
+	n ^= n << 5;
+	return n;
+}
 ```
 
 ## Link
+
 Visit https://catsum.deno.dev to see what catsum do
