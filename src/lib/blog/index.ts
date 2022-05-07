@@ -1,10 +1,10 @@
 import type { Highlighter } from "shiki";
 import path from "path";
-import fs from "fs";
-import yaml from "js-yaml";
+import * as fs from "fs";
+import * as yaml from "js-yaml";
 import dayjs from "dayjs";
 import parseFmt from "dayjs/plugin/customParseFormat.js";
-import shiki from "shiki";
+import * as shiki from "shiki";
 import { isElement } from "hast-util-is-element";
 import { unified } from "unified";
 import * as vfile from "to-vfile";
