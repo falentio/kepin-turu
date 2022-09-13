@@ -1,7 +1,7 @@
 <script lang="ts">
 	import "../app.css";
 	// sans-serif font
-	import "@fontsource/abel/400.css";
+	import "@fontsource/abel/400.css";	
 	// monospace font
 	import "@fontsource/ibm-plex-mono/400.css";
 	import Footer from "$lib/components/Footer.svelte";
@@ -19,7 +19,6 @@
 	});
 </script>
 
-< />
 <div class={$settings.theme}>
 	<div
 		class="{getFontClass(
