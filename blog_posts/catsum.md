@@ -10,7 +10,7 @@ tags:
 
 # Catsum
 
-https://catsum.deno.dev
+https://catsum.falentio.my.id
 
 Catsum is random cat images generator.
 Highly inspired with picsum.photo but only focused to Cat Photo.
