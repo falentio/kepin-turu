@@ -51,4 +51,4 @@ function xorshift(n: number) {
 
 ## Link
 
-Visit https://catsum.deno.dev to see what catsum do
+Visit https://catsum.falentio.my.id to see what catsum do
