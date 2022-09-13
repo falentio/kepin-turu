@@ -2,13 +2,9 @@
 	import "../app.css";
 	// sans-serif font
 	import "@fontsource/abel/400.css";
-	import "@fontsource/open-sans/400.css";
-	import "@fontsource/roboto/400.css";
-	import "@fontsource/dm-sans/400.css";
 	// monospace font
 	import "@fontsource/ibm-plex-mono/400.css";
 	import Footer from "$lib/components/Footer.svelte";
-	import Favicon from "$lib/components/Favicon.svelte";
 	import Navbar from "$lib/components/Navbar.svelte";
 	import { settings, init, getFontClass } from "$lib/store/settings";
 	import { browser } from "$app/env";
@@ -23,7 +19,7 @@
 	});
 </script>
 
-<Favicon />
+< />
 <div class={$settings.theme}>
 	<div
 		class="{getFontClass(
