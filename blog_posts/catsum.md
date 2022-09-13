@@ -23,7 +23,7 @@ Highly inspired with picsum.photo but only focused to Cat Photo.
 4. Flickr
 
 All images are received from flickr api, and stored in single csv file so I dont need to take care of api rate limit from flickr api.
-Images processing like crop, blur, grayscaling, and format converter are done bt Imgix.
+Images processing like crop, blur, grayscaling, and format converter are done by Imgix.
 
 ## Features
 
