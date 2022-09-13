@@ -15,7 +15,6 @@
 			<div class="flex flex-row gap-3 text-sm">
 				<a href="/">home</a>
 				<a href="/blog">blog</a>
-				<a href="/settings">settings</a>
 			</div>
 		</div>
 		<div class="mr-auto" />
